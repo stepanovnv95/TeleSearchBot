@@ -401,4 +401,8 @@ if __name__ == '__main__':
     create_tasks()
     thread = threading.Thread(target=sheldure_pending)
     thread.start()
-    bot.polling(none_stop=True)
+    while True:
+        try:
+            bot.polling(none_stop=True)
+        except Exception as e:
+            time.sleep(15)
